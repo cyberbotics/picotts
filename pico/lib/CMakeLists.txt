@@ -31,8 +31,13 @@ set(PICO_SOURCES
     picowa.c
 )
 
-# Create the library
-add_library(picolib STATIC ${PICO_SOURCES})
+# Create the shared library
+add_library(picolib SHARED ${PICO_SOURCES})
+set_target_properties(picolib PROPERTIES
+    VERSION 1.0.0
+    SOVERSION 1
+    OUTPUT_NAME "pico"
+)
 
 # Set include directories for the library
 target_include_directories(picolib PUBLIC
@@ -42,6 +47,12 @@ target_include_directories(picolib PUBLIC
 # Link with required system libraries
 target_link_libraries(picolib
     m  # Math library
+)
+
+# Install the library
+install(TARGETS picolib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION lib  # For Windows DLL
 )
 
 # Install headers

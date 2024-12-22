@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(picotts C)
 
-# Set C standard
+# Set C standard and position independent code for shared libraries
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
