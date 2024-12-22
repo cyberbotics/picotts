@@ -43,3 +43,39 @@ target_include_directories(picolib PUBLIC
 target_link_libraries(picolib
     m  # Math library
 )
+
+# Install headers
+install(FILES
+    picoacph.h
+    picoapi.h
+    picobase.h
+    picocep.h
+    picoctrl.h
+    picodata.h
+    picodbg.h
+    picodefs.h
+    picodsp.h
+    picofftsg.h
+    picokdbg.h
+    picokdt.h
+    picokfst.h
+    picoklex.h
+    picoknow.h
+    picokpdf.h
+    picokpr.h
+    picoktab.h
+    picoos.h
+    picopal.h
+    picopam.h
+    picopltf.h
+    picopr.h
+    picorsrc.h
+    picosa.h
+    picosig.h
+    picosig2.h
+    picospho.h
+    picotok.h
+    picotrns.h
+    picowa.h
+    DESTINATION include/picotts
+)
