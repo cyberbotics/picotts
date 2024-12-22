@@ -18,9 +18,15 @@ include_directories(
 # Add library subdirectory
 add_subdirectory(lib)
 
+# Find popt library
+find_library(POPT_LIBRARY NAMES popt)
+if(NOT POPT_LIBRARY)
+    message(FATAL_ERROR "popt library not found")
+endif()
+
 # Add the pico2wave executable
 add_executable(pico2wave bin/pico2wave.c)
-target_link_libraries(pico2wave picolib)
+target_link_libraries(pico2wave picolib ${POPT_LIBRARY})
 
 # Installation rules
 install(TARGETS pico2wave
