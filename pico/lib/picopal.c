@@ -89,7 +89,6 @@ extern "C" {
 #include <time.h>
 #if PICO_PLATFORM == PICO_Windows
 #include <windows.h>
-#include <stringapiset.h>
 #endif
 
 #if defined(PRAGMA_MESSAGE)

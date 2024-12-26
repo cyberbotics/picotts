@@ -1,35 +1,5 @@
-# Collect all source files
-set(PICO_SOURCES
-    picoacph.c
-    picoapi.c
-    picobase.c
-    picocep.c
-    picoctrl.c
-    picodata.c
-    picodbg.c
-    picoextapi.c
-    picofftsg.c
-    picokdbg.c
-    picokdt.c
-    picokfst.c
-    picoklex.c
-    picoknow.c
-    picokpdf.c
-    picokpr.c
-    picoktab.c
-    picoos.c
-    picopal.c
-    picopam.c
-    picopr.c
-    picorsrc.c
-    picosa.c
-    picosig.c
-    picosig2.c
-    picospho.c
-    picotok.c
-    picotrns.c
-    picowa.c
-)
+# Use GLOB to find all C source files in the current directory
+file(GLOB PICO_SOURCES "*.c")
 
 # Create the shared library
 add_library(picolib SHARED ${PICO_SOURCES})
@@ -38,7 +8,9 @@ set_target_properties(picolib PROPERTIES
     SOVERSION 1
     OUTPUT_NAME "pico"
 )
-
+if(WIN32)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
 # Set include directories for the library
 target_include_directories(picolib PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -52,7 +24,7 @@ target_link_libraries(picolib
 # Install the library
 install(TARGETS picolib
     LIBRARY DESTINATION lib
-    RUNTIME DESTINATION lib  # For Windows DLL
+    RUNTIME DESTINATION lib  
 )
 
 # Install headers

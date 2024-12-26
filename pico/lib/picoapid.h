@@ -56,8 +56,8 @@ typedef struct pico_system {
 
 
 /* declared in picoapi.c */
-extern int is_valid_system_handle(pico_System system);
-extern picoos_Common pico_sysGetCommon(pico_System this);
+int is_valid_system_handle(pico_System system);
+picoos_Common pico_sysGetCommon(pico_System this);
 
 
 #if 0
