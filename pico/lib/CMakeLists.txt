@@ -25,6 +25,7 @@ target_link_libraries(picolib
 install(TARGETS picolib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION lib  
+    ARCHIVE DESTINATION lib
 )
 
 # Install headers
