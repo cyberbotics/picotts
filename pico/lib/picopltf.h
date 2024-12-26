@@ -70,7 +70,7 @@
 #define __BYTE_ORDER _BYTE_ORDER
 #define __BIG_ENDIAN _BIG_ENDIAN
 #include <sys/endian.h>
-#else
+#elif !defined(PICO_Windows) 
 #include <endian.h>
 #endif
 
